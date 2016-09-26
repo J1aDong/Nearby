@@ -1,6 +1,6 @@
 'use strict';
 
-import {PixelRatio} from 'react-native';
+import {PixelRatio, Platform} from 'react-native';
 import Dimensions from 'Dimensions';
 
 var Util = {
@@ -10,6 +10,17 @@ var Util = {
     size: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
+    },
+
+    statusHeight: function ()
+    {
+        if (Platform.OS == 'ios')
+        {
+            return 22;
+        } else
+        {
+            return 0;
+        }
     },
 
     //POST方法
@@ -51,5 +62,9 @@ var Util = {
     //周边搜索服务
     searchURL: 'http://restapi.amap.com/v3/place/around?',
     //ID查询
-    detailURL: 'http://restapi.amap.com/v3/place/detail?'
+    detailURL: 'http://restapi.amap.com/v3/place/detail?',
+
+
 }
+
+export default Util;
